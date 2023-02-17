@@ -26,6 +26,8 @@ public class playercontroller : MonoBehaviour
     Ray ray;
     public GameObject interactInterface;
     public mouseLock mouseLock;
+    public bool canMove = true;
+    public bool lightBoxOpened = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -51,7 +53,15 @@ public class playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (lightBoxOpened == true)
+        {
+            transform.position = new Vector3(-3.536096f, -4.5f, 36.59479f);
+            
+            
+        }
+        
+        if (!canMove)
+            return;
         if(PV.IsMine)
         {
             ray = new Ray(cam.transform.position, cam.transform.forward);
@@ -102,9 +112,13 @@ public class playercontroller : MonoBehaviour
                 interactInterface.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    lightBoxOpened = true;
+                    canMove = false;
                     mouseLock.canTurn = false;
-                    cam.transform.Translate(new Vector3(0.2f, 0f, 1.8f) * Time.deltaTime, Space.World);
+                    transform.rotation = Quaternion.Euler(0, -100, 0);
+                    
                     lightBoxAnimator.SetBool("opened?", true);
+                    cam.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             } else {
                 interactInterface.SetActive(false);

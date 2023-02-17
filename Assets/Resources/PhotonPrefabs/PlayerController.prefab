@@ -1293,3 +1293,17 @@ MonoBehaviour:
     m_Bits: 8
   interactInterface: {fileID: 7317307621152516599}
   mouseLock: {fileID: 877968952631577539}
+--- !u!136 &914198219098047176
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888054612437993005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8904977
+  m_Height: 3.439955
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.2199775, z: -0.07903886}
